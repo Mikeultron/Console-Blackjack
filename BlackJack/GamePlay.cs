@@ -4,6 +4,7 @@ namespace BlackJack
 {
     class GamePlay
     {
+        // Some fields
         public static List<string> dealerCard = new List<string>();
         public static List<string> playerCard = new List<string>();
         static Player player = new Player();
@@ -11,6 +12,8 @@ namespace BlackJack
         public static bool gameOver = false;
         public static bool playerTurn = true;
         static void Main(string[] args) => MainMenu();
+        
+        // The main menu.
         static void MainMenu()
         {
             Console.WriteLine("Welcome to the game of Blackjack");
@@ -20,8 +23,11 @@ namespace BlackJack
             if(a == "1")
                 Play();
         }
+        
+        // Method for handling gameplay.
         static void Play()
         {
+            // Dealer and player get 2 cards at the beginning of the game.
             dealerCard.Add(Card.GenerateCard());
             dealerCard.Add(Card.GenerateCard());
             playerCard.Add(Card.GenerateCard());
@@ -58,6 +64,8 @@ namespace BlackJack
                     dealer.DealerTurn();
             }
         }
+        
+        // Method for getting the card value of the specified name.
         static int EvaluateValue(string name)
         {
             if(name == "player")
